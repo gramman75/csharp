@@ -15,7 +15,8 @@ namespace LINQtoSQL
             //var data = from tb in db.SampleTable
             //           orderby tb.name ascending
             //           select tb;
-
+    
+            // 특정 컬럼 return
             //var data = from tb in db.SampleTable
             //           where tb.name == "kim"
             //           select new
@@ -24,6 +25,7 @@ namespace LINQtoSQL
             //               id = tb.id
             //           };
 
+            // method방식 LINQ
             var data = db.SampleTable.Where(tb => tb.name == "kim").Select(p => new { name = p.name, id = p.id });
 
             foreach( var o in data)
