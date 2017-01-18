@@ -30,6 +30,9 @@ namespace LINQtoSQL
 		
     #region 확장성 메서드 정의
     partial void OnCreated();
+    partial void InsertSampleTable(SampleTable instance);
+    partial void UpdateSampleTable(SampleTable instance);
+    partial void DeleteSampleTable(SampleTable instance);
     #endregion
 		
 		public SampleTableDataContext() : 
@@ -72,8 +75,10 @@ namespace LINQtoSQL
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SampleTable")]
-	public partial class SampleTable
+	public partial class SampleTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private System.Nullable<int> _id;
 		
@@ -83,11 +88,26 @@ namespace LINQtoSQL
 		
 		private System.Nullable<System.DateTime> _birthDate;
 		
+    #region 확장성 메서드 정의
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(System.Nullable<int> value);
+    partial void OnidChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnageChanging(System.Nullable<int> value);
+    partial void OnageChanged();
+    partial void OnbirthDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnbirthDateChanged();
+    #endregion
+		
 		public SampleTable()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int", IsPrimaryKey=true)]
 		public System.Nullable<int> id
 		{
 			get
@@ -98,7 +118,11 @@ namespace LINQtoSQL
 			{
 				if ((this._id != value))
 				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
 					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
@@ -114,7 +138,11 @@ namespace LINQtoSQL
 			{
 				if ((this._name != value))
 				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
 					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
 				}
 			}
 		}
@@ -130,7 +158,11 @@ namespace LINQtoSQL
 			{
 				if ((this._age != value))
 				{
+					this.OnageChanging(value);
+					this.SendPropertyChanging();
 					this._age = value;
+					this.SendPropertyChanged("age");
+					this.OnageChanged();
 				}
 			}
 		}
@@ -146,8 +178,32 @@ namespace LINQtoSQL
 			{
 				if ((this._birthDate != value))
 				{
+					this.OnbirthDateChanging(value);
+					this.SendPropertyChanging();
 					this._birthDate = value;
+					this.SendPropertyChanged("birthDate");
+					this.OnbirthDateChanged();
 				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

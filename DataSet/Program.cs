@@ -11,7 +11,7 @@ namespace DataSetSample
     {
         static void Main(string[] args)
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDBFileName='C:\Users\stmkmk\gramman.mdf';Initial Catalog=gramman;Integrated Security=True;";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDBFileName='C:\Users\gramman\gramman.mdf';Initial Catalog=gramman;Integrated Security=True;";
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
