@@ -1,0 +1,29 @@
+﻿<Window x:Class="StudyWPFApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudyWPFApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button x:Name="myButton" Height="100" Width="100" 
+                Click="myButton_Click" 
+                Margin="212,110,205,110"
+                >
+            <Button.Content>
+                <ScrollBar Height="50" Width="20" />
+            </Button.Content>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0.0" EndPoint="1,1">
+                    <GradientStop Color="Blue" Offset="0" />
+                    <GradientStop Color="Yellow" Offset="0.25" />
+                    <GradientStop Color="Green" Offset="0.75" />
+                    <GradientStop Color="Red" Offset="0.50" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+
+    
+</Window>

@@ -1,0 +1,16 @@
+﻿<Page
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:CorLib="clr-namespace:System;assembly=mscorlib">
+    <StackPanel>
+        <StackPanel.Resources>
+            <x:Array Type="CorLib:String" x:Key="ListItem">
+                <CorLib:String>Kim</CorLib:String>
+                <CorLib:String>Moon</CorLib:String> 
+                <CorLib:String>Geun</CorLib:String> 
+            </x:Array>
+        </StackPanel.Resources>
+        <Label Content="Name"></Label>
+        <ListBox Width="200" ItemsSource="{StaticResource ListItem}" />
+    </StackPanel>
+</Page>

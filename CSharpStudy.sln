@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSet", "DataSet\DataSet.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQtoSQL", "LINQtoSQL\LINQtoSQL.csproj", "{E9357438-83C3-493A-A72F-D03513F2E7BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWPFApp", "WPF\SimpleWPFApp\SimpleWPFApp.csproj", "{CD244B28-7DE3-4FF9-BC83-9CE980B20CC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleXamlApp", "WPF\SimpleXamlApp\SimpleXamlApp.csproj", "{C71ECEC4-2A0C-4394-A3AD-362D5E9644F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{E9357438-83C3-493A-A72F-D03513F2E7BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9357438-83C3-493A-A72F-D03513F2E7BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9357438-83C3-493A-A72F-D03513F2E7BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD244B28-7DE3-4FF9-BC83-9CE980B20CC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD244B28-7DE3-4FF9-BC83-9CE980B20CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD244B28-7DE3-4FF9-BC83-9CE980B20CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD244B28-7DE3-4FF9-BC83-9CE980B20CC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C71ECEC4-2A0C-4394-A3AD-362D5E9644F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C71ECEC4-2A0C-4394-A3AD-362D5E9644F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C71ECEC4-2A0C-4394-A3AD-362D5E9644F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C71ECEC4-2A0C-4394-A3AD-362D5E9644F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
