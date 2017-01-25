@@ -23,6 +23,7 @@ namespace SpellChecker
         public MainWindow()
         {
             InitializeComponent();
+            SetF1CommandBinding();
         }
 
         private void FileExit_Click(object sender, RoutedEventArgs e)
@@ -69,6 +70,24 @@ namespace SpellChecker
             }
 
 
+        }
+
+        private void SetF1CommandBinding()
+        {
+            CommandBinding helpBinding = new CommandBinding(ApplicationCommands.Help);
+            helpBinding.CanExecute += CanHelpExecute;
+            helpBinding.Executed += HelpExecuted;
+            CommandBindings.Add(helpBinding);
+        }
+
+        private void HelpExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("Help!");
+        }
+
+        private void CanHelpExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
         }
     }
 }

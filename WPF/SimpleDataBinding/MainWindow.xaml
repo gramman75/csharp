@@ -1,0 +1,17 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleDataBinding"
+        xmlns:Properties="clr-namespace:SimpleDataBinding.Properties" x:Class="SimpleDataBinding.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel DataContext="{Binding ElementName=mySb, Mode=OneWay}">
+        <Label Content="Move the scroll bar to see the value"/>
+        <ScrollBar x:Name="mySb"  Orientation="Horizontal" 
+                   Minimum="1" Maximum="100" LargeChange="1" SmallChange="1" Cursor="Arrow"/>
+        <Label Content="{Binding Path=Value}"/>
+        <Label Height="500" FontSize="{Binding Path=Value}" Content="Click"/>
+    </StackPanel>
+</Window>

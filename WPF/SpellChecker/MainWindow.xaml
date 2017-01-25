@@ -14,10 +14,18 @@
                           MouseLeave="MouseLeaveArea">
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Command="ApplicationCommands.Copy"></MenuItem>
+                <MenuItem Command="ApplicationCommands.Paste"></MenuItem>
+                <MenuItem Command="ApplicationCommands.Cut"></MenuItem>
+            </MenuItem>
             <MenuItem Header="_Tools">
                 <MenuItem Header="_Spelling hints" MouseEnter="MouseEnterToolsHintsArea"
                           MouseLeave="MouseLeaveArea" Click="ToolsSpellingHints_Click" />
 
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Command="ApplicationCommands.Help"></MenuItem>
             </MenuItem>
         </Menu>
         <ToolBar DockPanel.Dock="Top">
