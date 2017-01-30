@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpellChecker", "WPF\SpellCh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDataBinding", "WPF\SimpleDataBinding\SimpleDataBinding.csproj", "{0B92C5F3-9F62-451F-BCE2-AD98D90135EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Chapter4", "wpf\WPF_Chapter4\WPF_Chapter4.csproj", "{8E86DFC9-0DA5-46A9-A94B-AEFCDC0FCA5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{0B92C5F3-9F62-451F-BCE2-AD98D90135EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B92C5F3-9F62-451F-BCE2-AD98D90135EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B92C5F3-9F62-451F-BCE2-AD98D90135EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E86DFC9-0DA5-46A9-A94B-AEFCDC0FCA5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E86DFC9-0DA5-46A9-A94B-AEFCDC0FCA5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E86DFC9-0DA5-46A9-A94B-AEFCDC0FCA5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E86DFC9-0DA5-46A9-A94B-AEFCDC0FCA5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
