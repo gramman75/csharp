@@ -11,15 +11,15 @@
             <MenuItem Header="_File"></MenuItem>
             <MenuItem Header="_Edit"></MenuItem>
         </Menu>
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+        <StackPanel Name="buttonBar" Orientation="Horizontal" DockPanel.Dock="Right">
             <StackPanel.LayoutTransform>
                 <RotateTransform Angle="90" />
             </StackPanel.LayoutTransform>
             <Button Name="pane1Button" Click="pane1Button_Click">Tool Box</Button>
-            <Button>Solution Explorer</Button>
+            <Button Name="pane2Button" Click="pane2Button_Click">Solution Explorer</Button>
         </StackPanel>
 
-        <Grid Name="parentGrid">
+        <Grid Name="parentGrid" Grid.IsSharedSizeScope="True">
 
             <Grid Name="layer0">
                 <Grid.RowDefinitions>
@@ -51,14 +51,16 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition SharedSizeGroup="column1" Width="auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrush}}">
+                    <Grid Grid.Column="1"
+                          MouseEnter="pane1_MouseEnter"
+                          Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrush}}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition />
                         </Grid.RowDefinitions>
 
                         <DockPanel Grid.Row="0">
-                            <Button DockPanel.Dock="Right" Background="White">
+                            <Button DockPanel.Dock="Right" Background="White" Name="pane1Pin" Click="pane1Pin_Click">
                                 <!-- <Image Source="pinHori.gif"></Image> -->
                                 Pin
                             </Button>
@@ -69,7 +71,30 @@
                     </Grid>
                     <GridSplitter Width="5" Grid.Column="1" HorizontalAlignment="Left" />
                 </Grid>
-                
+            <Grid Name="layer2" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition SharedSizeGroup="column2" Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" MouseEnter="pane2_MouseEnter" 
+                      Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0">
+                        <Button Name="pane2Pin" Width="26" DockPanel.Dock="Right" Click="pane2Pin_Click" Background="White">
+                            Pin
+                        </Button>
+                        <TextBlock Padding="8" TextTrimming="CharacterEllipsis"
+                                   Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"
+                                   DockPanel.Dock="Left">Solution Explorer</TextBlock>
+                    </DockPanel>
+                    
+                </Grid>
+                <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="5"></GridSplitter>
+            </Grid>
         </Grid>
     </DockPanel>
 </Window>
