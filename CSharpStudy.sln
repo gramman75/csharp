@@ -27,9 +27,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWPFApp", "WPF\SimpleW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleXamlApp", "WPF\SimpleXamlApp\SimpleXamlApp.csproj", "{C71ECEC4-2A0C-4394-A3AD-362D5E9644F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFControlEvents", "WPF\WPFControlEvents\WPFControlEvents.csproj", "{855B3769-8876-4D33-B2C0-E2E36F971796}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpellChecker", "WPF\SpellChecker\SpellChecker.csproj", "{4C2C04E9-F7B7-4E06-9684-CB40B1661ABD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFControls", "WPF\WPFControls\WPFControls.csproj", "{E3AB96C6-6BB6-4D94-877B-D168F815F145}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDataBinding", "WPF\SimpleDataBinding\SimpleDataBinding.csproj", "{0B92C5F3-9F62-451F-BCE2-AD98D90135EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Chapter4", "wpf\WPF_Chapter4\WPF_Chapter4.csproj", "{8E86DFC9-0DA5-46A9-A94B-AEFCDC0FCA5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,14 +87,18 @@ Global
 		{C71ECEC4-2A0C-4394-A3AD-362D5E9644F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C71ECEC4-2A0C-4394-A3AD-362D5E9644F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C71ECEC4-2A0C-4394-A3AD-362D5E9644F4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{855B3769-8876-4D33-B2C0-E2E36F971796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{855B3769-8876-4D33-B2C0-E2E36F971796}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{855B3769-8876-4D33-B2C0-E2E36F971796}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{855B3769-8876-4D33-B2C0-E2E36F971796}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E3AB96C6-6BB6-4D94-877B-D168F815F145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3AB96C6-6BB6-4D94-877B-D168F815F145}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3AB96C6-6BB6-4D94-877B-D168F815F145}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3AB96C6-6BB6-4D94-877B-D168F815F145}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C2C04E9-F7B7-4E06-9684-CB40B1661ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C2C04E9-F7B7-4E06-9684-CB40B1661ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C2C04E9-F7B7-4E06-9684-CB40B1661ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C2C04E9-F7B7-4E06-9684-CB40B1661ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B92C5F3-9F62-451F-BCE2-AD98D90135EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B92C5F3-9F62-451F-BCE2-AD98D90135EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B92C5F3-9F62-451F-BCE2-AD98D90135EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B92C5F3-9F62-451F-BCE2-AD98D90135EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E86DFC9-0DA5-46A9-A94B-AEFCDC0FCA5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E86DFC9-0DA5-46A9-A94B-AEFCDC0FCA5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E86DFC9-0DA5-46A9-A94B-AEFCDC0FCA5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E86DFC9-0DA5-46A9-A94B-AEFCDC0FCA5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
