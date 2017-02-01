@@ -58,6 +58,9 @@
     <Compile Include="ContentOverflow.xaml.cs">
       <DependentUpon>ContentOverflow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SelfVBStyle.xaml.cs">
+      <DependentUpon>SelfVBStyle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VSStyleWindow.xaml.cs">
       <DependentUpon>VSStyleWindow.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SelfVBStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VSStyleWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
