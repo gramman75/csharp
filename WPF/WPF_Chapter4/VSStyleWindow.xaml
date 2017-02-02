@@ -46,7 +46,7 @@
                 </ListBox>
             </Grid>
             
-            <Grid Name="layer1" Visibility="Collapsed">
+            <Grid Name="layer1" Visibility="Visible">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition SharedSizeGroup="column1" Width="auto"></ColumnDefinition>

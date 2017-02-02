@@ -16,12 +16,12 @@
                 <RotateTransform Angle="90"/>
             </StackPanel.LayoutTransform>
 
-            <Button>알림</Button>
-            <Button>진단도구</Button>
+            <Button Name="btnAlram" Click="btnAlram_Click">알림</Button>
+            <Button Name="btnDiagnosis" Click="btnDiagnosis_Click">진단도구</Button>
         </StackPanel>
-        <Grid Name="parentGrid">
-            <Grid Name="layer0">
-                <Grid>
+        <Grid Name="parentGrid" Grid.IsSharedSizeScope="True">
+            <Grid Name="layer0" MouseDown="layer0_MouseDown">
+
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
@@ -32,15 +32,56 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-            
+                    <Label Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">Welcome</Label>
+                    <GroupBox Grid.Column="0" Grid.Row="1" Header="Group1"></GroupBox>
+                    <GroupBox Grid.Column="0" Grid.Row="2" Header="Group2"></GroupBox>
+                    <GroupBox Grid.Column="0" Grid.Row="3" Header="Group3"></GroupBox>
+                    <ListBox  Grid.Column="1" Grid.Row="1" Grid.RowSpan="3">
+                        <ListBoxItem Content="ListBoxItem"/>
+                        <ListBoxItem Content="ListBoxItem"/>
+                        <ListBoxItem Content="ListBoxItem"/>
+                        <ListBoxItem Content="ListBoxItem"/>
+                        <ListBoxItem Content="ListBoxItem"/>
+                    </ListBox>
                 </Grid>
-                    
-            </Grid>
+            
             <Grid Name="layer1" Visibility="Collapsed">
-                <Label>layer1</Label>
+               
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition SharedSizeGroup="column1" Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1" Background="Yellow">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0">
+                        <Button DockPanel.Dock="Right" Name="btnAlramPin" Click="btnAlramPin_Click">Pin</Button>
+                        <TextBlock DockPanel.Dock="Left">알림</TextBlock>
+                    </DockPanel>
+                </Grid>
+                <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Left"></GridSplitter>
             </Grid>
+
             <Grid Name="layer2" Visibility="Collapsed">
-                <Label>layer2</Label>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition SharedSizeGroup="column2" Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1" Background="Blue">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0">
+                        <Button DockPanel.Dock="Right" Name="btnDiagnosisPin" Click="btnDiagnosisPin_Click">Pin</Button>
+                        <TextBlock DockPanel.Dock="Left">진단도구</TextBlock>
+                    </DockPanel>
+                </Grid>
+                <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Left"></GridSplitter>
             </Grid>
         </Grid>
 
