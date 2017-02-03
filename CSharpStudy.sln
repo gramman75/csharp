@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDataBinding", "WPF\Si
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Chapter4", "wpf\WPF_Chapter4\WPF_Chapter4.csproj", "{8E86DFC9-0DA5-46A9-A94B-AEFCDC0FCA5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Event", "WPF\WPF_Event\WPF_Event.csproj", "{166D664E-B4D8-4C6C-A8D7-BCA689654B63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{8E86DFC9-0DA5-46A9-A94B-AEFCDC0FCA5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E86DFC9-0DA5-46A9-A94B-AEFCDC0FCA5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E86DFC9-0DA5-46A9-A94B-AEFCDC0FCA5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{166D664E-B4D8-4C6C-A8D7-BCA689654B63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{166D664E-B4D8-4C6C-A8D7-BCA689654B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{166D664E-B4D8-4C6C-A8D7-BCA689654B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{166D664E-B4D8-4C6C-A8D7-BCA689654B63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

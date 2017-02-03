@@ -1,0 +1,31 @@
+﻿<Window x:Class="WPF_Event.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Event"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525"
+        x:Name="PackmanWindow">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Button Name="btnPackman" Click="btnPackman_Click">
+            <Grid Height="100" Width="300">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Canvas Grid.Column="0" Width="100" Height="100" Name="cvsPackman" >
+                    <Path Fill="#FF000000" Stretch="Fill" Stroke="Black" Width="84" Height="79" Canvas.Left="17.5" Canvas.Top="14.017" MouseDown="cvsPackman_MouseDown" Data="M18.5,63.018203 L72.5,57.018468 37.5,86.017186 45.5,90.01701 54.5,92.016478 70.5,90.016135 82.5,83.016081 91.5,75.016138 97.5,67.016253 100.5,58.01651 99.5,46.017122 95.5,33.018441 88.5,25.019252 79.5,18.019962 65.5,14.019926 53.5,14.019926 41.5,16.019317 32.5,21.018556 24.5,27.017883 C24.5,27.017883 19,38.517442 19,38.517442 18.5,43.019086 17.5,53.018645 17.5,53.018645"/>
+                    <Ellipse Fill="#FFFFFFFF" Stroke="#FF000000" Width="15" Height="13" Canvas.Left="45" Canvas.Top="31.517"/>
+                </Canvas>
+                <TextBlock Text="Packman" Grid.Column="1"></TextBlock>
+            </Grid>
+        </Button>
+        <ListBox Grid.Row="1" Name="lbxPackman"></ListBox>
+    </Grid>
+</Window>
