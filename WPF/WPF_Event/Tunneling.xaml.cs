@@ -23,5 +23,34 @@ namespace WPF_Event
         {
             InitializeComponent();
         }
+
+        private void Page_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine("1. Page");
+        }
+
+        private void Grid_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine("2. Grid");
+
+        }
+
+        private void Button_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine("3. Button");
+
+        }
+
+        private void Canvas_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine("4. Canvas");
+
+        }
+
+        private void Rectangle_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine("5. Rectangle");
+
+        }
     }
 }

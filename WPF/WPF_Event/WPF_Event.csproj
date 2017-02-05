@@ -53,6 +53,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command.xaml.cs">
+      <DependentUpon>Command.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Direct_EventSetter.xaml.cs">
+      <DependentUpon>Direct_EventSetter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Direct_EventTrigger.xaml.cs">
+      <DependentUpon>Direct_EventTrigger.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tunneling.xaml.cs">
       <DependentUpon>Tunneling.xaml</DependentUpon>
     </Compile>
@@ -68,6 +77,18 @@
       <DependentUpon>Bubbling.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Command.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Direct_EventSetter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Direct_EventTrigger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Tunneling.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
