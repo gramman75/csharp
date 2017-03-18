@@ -34,8 +34,8 @@ namespace StandardQueryOperator
     {
         public static readonly Patent[] Patents = new Patent[]{
             new Patent() {Title="Title1", ApplicationNumber="0001", YearOfPublication="2001", InventorIds = new long[]{1,2} },
-            new Patent() {Title="Title2", ApplicationNumber="0002", YearOfPublication="2002", InventorIds = new long[]{1} },
-            new Patent() {Title="Title3", ApplicationNumber="0003", YearOfPublication="2003", InventorIds = new long[]{2} },
+            new Patent() {Title="Title2", ApplicationNumber="0002", YearOfPublication="2001", InventorIds = new long[]{1} },
+            new Patent() {Title="Title3", ApplicationNumber="0003", YearOfPublication="2001", InventorIds = new long[]{2} },
             new Patent() {Title="Title4", ApplicationNumber="0004", YearOfPublication="2004", InventorIds = new long[]{3} }
         };
     }
@@ -57,25 +57,39 @@ namespace StandardQueryOperator
             IEnumerable<Patent> patents = PatentDataSet.Patents;
             IEnumerable<Inventor>inventors = InventorDataSet.Inventors;
 
-            //inventors = inventors.Where(
-            //    inventor => inventor.Name.StartsWith("K"));
 
-            //foreach(Patent item in patents)
-            //{
-            //    Console.WriteLine(item);
-            //};
+            IEnumerable<Patent> items1;
+            IEnumerable<Inventor> items2;
 
-            //foreach(Inventor item in inventors)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            IEnumerable<IGrouping<string, Patent>> groupedPatent;
+            groupedPatent = patents.GroupBy(patent => patent.YearOfPublication);
+
+            foreach(IGrouping<string, Patent> group in groupedPatent)
+            {
+                
+                foreach(Patent patent in group)
+                {
+                    Console.WriteLine(patent);
+                }
+
+                Console.WriteLine($"Count : {group.Count()}");
+            }
+
+            items2 = inventors.OrderBy(inventor => inventor.Name).ThenBy(
+                inventor=> inventor.City);
+
+
+            foreach (Inventor item in items2)
+            {
+                Console.WriteLine(item);
+            }
 
             // IEnumerable<Inventor> inventors = InventorDataSet.Inventors;
-            IEnumerable<Inventor> filterInventors = inventors.Where(inventor => inventor.Name.StartsWith("K"));
-            IEnumerable<string> str = filterInventors.Select(inventor => inventor.ToString());
-            var obj = filterInventors.Select(inventor => new { Name = inventor.Name, City = inventor.City });
+            //IEnumerable<Inventor> filterInventors = inventors.Where(inventor => inventor.Name.StartsWith("K"));
+            //IEnumerable<string> str = filterInventors.Select(inventor => inventor.ToString());
+            //var obj = filterInventors.Select(inventor => new { Name = inventor.Name, City = inventor.City });
 
-            Console.WriteLine(patents.Count(patent => patent.Title.EndsWith("1")));
+            //Console.WriteLine(patents.Count(patent => patent.Title.EndsWith("1")));
         }
     }
 }
