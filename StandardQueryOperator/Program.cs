@@ -12,7 +12,7 @@ namespace StandardQueryOperator
         public string Title { get; set; }
         public string YearOfPublication { get; set; }
         public string ApplicationNumber { get; set; }
-        public long[] InventorIds { get; set; }
+        public long InventorIds { get; set; }
         public override string ToString()
         {
             return $"{Title} ({YearOfPublication})";
@@ -33,10 +33,10 @@ namespace StandardQueryOperator
     class PatentDataSet
     {
         public static readonly Patent[] Patents = new Patent[]{
-            new Patent() {Title="Title1", ApplicationNumber="0001", YearOfPublication="2001", InventorIds = new long[]{1,2} },
-            new Patent() {Title="Title2", ApplicationNumber="0002", YearOfPublication="2001", InventorIds = new long[]{1} },
-            new Patent() {Title="Title3", ApplicationNumber="0003", YearOfPublication="2001", InventorIds = new long[]{2} },
-            new Patent() {Title="Title4", ApplicationNumber="0004", YearOfPublication="2004", InventorIds = new long[]{3} }
+            new Patent() {Title="Title1", ApplicationNumber="0001", YearOfPublication="2001", InventorIds = 1 },
+            new Patent() {Title="Title2", ApplicationNumber="0002", YearOfPublication="2001", InventorIds = 2 },
+            new Patent() {Title="Title3", ApplicationNumber="0003", YearOfPublication="2001", InventorIds = 2 },
+            new Patent() {Title="Title4", ApplicationNumber="0004", YearOfPublication="2004", InventorIds = 3 }
         };
     }
 
@@ -61,6 +61,28 @@ namespace StandardQueryOperator
             IEnumerable<Patent> items1;
             IEnumerable<Inventor> items2;
 
+            patents.co
+            var items = inventors.GroupJoin(
+                patents,
+                (inventor) => inventor.Id,
+                (patent) => patent.InventorIds,
+                (inventor, patent) => new
+                {
+                    Name = inventor.Name,
+                    City = inventor.City,
+                    Patent = patent
+
+                });
+
+            foreach(var item in items)
+            {
+                Console.WriteLine($"{item.Name}({item.City})");
+                foreach(Patent p in item.Patent)
+                {
+                    Console.WriteLine($"\t{p.Title}");
+                }
+            }
+
             IEnumerable<IGrouping<string, Patent>> groupedPatent;
             groupedPatent = patents.GroupBy(patent => patent.YearOfPublication);
 
@@ -80,6 +102,37 @@ namespace StandardQueryOperator
 
 
             foreach (Inventor item in items2)
+            {
+                Console.WriteLine(item);
+            }
+
+            var teams = new[]
+            {
+                new
+                {
+                    Name = "Korea",
+                    players = new string[]
+                    {
+                        "Kim","Moon"
+                    }
+                },
+                new
+                {
+                    Name ="USA",
+                    players = new string[]
+                    {
+                        "John","Tom"
+                    }
+                }
+            };
+
+            
+
+            IEnumerable<string> player = teams.SelectMany(
+                (team => team.players)
+            );
+
+            foreach(var item in player)
             {
                 Console.WriteLine(item);
             }

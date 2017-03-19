@@ -90,3 +90,58 @@
 
                 Console.WriteLine($"Count : {group.Count()}");
             }
+	. One-To-Many Relationship with GroupJoin()
+		. 2개의 Collection을 Join하여 1:n의 조합을 생성
+		. Grouping하는 Collection을 trigger로 시작.
+			var items = inventors.GroupJoin(
+                patents, 
+                (inventor) => inventor.Id,
+                (patent) => patent.InventorIds,
+                (inventor, patent) => new // (1:N)
+                {
+                    Name = inventor.Name,
+                    City = inventor.City,
+                    Patent = patent
+
+                });
+	. Calling SelectMany()
+		.Collection(teams)안에 Collection(players)이 있는 경우 Collection(players)을 union all하여 
+		  IEnumerable<T> return
+
+			var teams = new[]
+            {
+                new
+                {
+                    Name = "Korea",
+                    players = new string[]
+                    {
+                        "Kim","Moon"
+                    }
+                },
+                new
+                {
+                    Name ="USA",
+                    players = new string[]
+                    {
+                        "John","Tom"
+                    }
+                }
+            };
+
+            IEnumerable<string> player = teams.SelectMany(
+                (team => team.players)
+            );
+
+            foreach(var item in player)
+            {
+                Console.WriteLine(item);
+            }
+	. 기타
+		. ofType<T>()
+			. collection에서 T type인 것만 Return
+			   IEnumerable<int> items = stuff.ofType<int>(); //stuff collection에서 int type만 return
+		. Union
+		    . 두 collection을 합침. 중복 data는 하나만 표현.
+			  IEnumerable<int> numbres = odd.Union(even);
+		. Concat
+			.
