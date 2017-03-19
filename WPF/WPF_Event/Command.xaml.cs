@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -14,26 +12,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF_PhotoGallery
+namespace WPF_Event
 {
     /// <summary>
-    /// MainWindow.xaml에 대한 상호 작용 논리
+    /// Command.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Command : Page
     {
-        public MainWindow()
+        public Command()
         {
             InitializeComponent();
         }
 
-        protected override void OnClosing(CancelEventArgs e)
+        private void cmdBind_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            base.OnClosing(e);
+            Console.WriteLine("Can Execute");
+            // e.CanExecute = false;
 
-            if (MessageBox.Show("Sure Close!", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.No)
-            {
-                e.Cancel = true;
-            }
+        }
+
+        private void cmdBind_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("Executed");
         }
     }
 }

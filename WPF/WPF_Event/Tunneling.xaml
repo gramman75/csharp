@@ -6,9 +6,13 @@
       xmlns:local="clr-namespace:WPF_Event"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="Tunneling">
+      Title="Tunneling" PreviewMouseDown="Page_PreviewMouseDown">
 
-    <Grid>
-        
+    <Grid PreviewMouseDown="Grid_PreviewMouseDown">
+        <Button Width="150" Height="150" Background="Red" PreviewMouseDown="Button_PreviewMouseDown">
+            <Canvas Width="100" Height="100" Margin="25" PreviewMouseDown="Canvas_PreviewMouseDown">
+                <Rectangle Fill="Blue" Width="100" Height="100" PreviewMouseDown="Rectangle_PreviewMouseDown"></Rectangle>
+            </Canvas>
+        </Button>
     </Grid>
 </Page>
