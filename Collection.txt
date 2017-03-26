@@ -1,0 +1,147 @@
+﻿List<T> Collection
+	Arrary와 유사하지만 차이점은 자동으로 사이즈를 증가 시켜줌.
+	List<T>.Sort()시 사용자 정의기준으로 Sort하기위해서 IComparer<T>를 구현한 Instance를 전달
+
+	class StrCompare: IComparer<string>
+	{
+		int IComparer<string>.Compare(string x, string y){
+			 return y.CompareTo(x);
+		}
+	}
+
+	list.Sort(new StrCompare());
+
+	Searching
+		IndexOf(), LastIndexOf(), Contains(), BinaraySearch()
+		BinarySearch()는 정렬 후 사용 가능.
+		BinarySearch는 찾지 못하면 음수값을 return하는데, 해당 음수값에 ~ 연산을 수행하면
+		정렬을 유지하면서 insert할 index값을 얻을 수 있음.
+
+		int idx = list.BinarySearch("Cool");
+
+        if (idx < 0)
+        {
+            list.Insert(~idx, "Cool");
+        }
+
+	FindAll()
+		변수로 delegate를 전달하여 delegate값이 true면 find
+
+		list.FindAll(str => str.StartsWith("B"));
+
+Dictionary
+	Key / Value형태로 저장
+	Key는 DB의 Primary Key와 유사함.
+	동일한 Key가 사용이 되면 Runtime Exception발생.
+	없는 Key를 이용하여 접근시 "KeyNotFoundException"발생. ContainsKey()를 이용하여 확인필요.
+	Dictionary에서 특정값이 있는지 검색하는 것은 정렬되지 않은 선형검색을 수행함.
+	Dictionary는 입력된 순서로 저장되기 때문에 정렬을 신뢰해서는 안됨.
+	Keys, Values 를 이용하여 ICollection을 Return받아사용 가능. 이때 복사본이 아니라 참조가 생성이 되기 때문에
+	값을 변경하면 원본 Dictionary에 반영이 됨.
+
+    Example
+		// Initializer를 이용한 초기화.
+            var colorMap = new Dictionary<string, ConsoleColor>()
+            {
+                {"Error", ConsoleColor.Red },
+                {"Warning", ConsoleColor.Yellow }
+            };
+            // Dictionary에 추가. ContainsKey()를 이용하여 존재 여부 확인.
+            if (!colorMap.ContainsKey("Information"))
+                colorMap.Add("Infomation", ConsoleColor.Green);
+
+			// Key와 Value를 각각 추출하여 사용
+            // Collection이 신규로 생성되는 것이 아니고 참조형태로 Return.
+			// To 함수를 사용하면 새로운 Collection이 생김
+            List<string> k = colorMap.Keys.ToList<string>();
+            List<ConsoleColor> v = colorMap.Values.ToList<ConsoleColor>();
+
+            // Dictionary loop를 통한 접근. KeyValuePari<>사용
+            foreach(KeyValuePair<string, ConsoleColor> item in colorMap)
+            {
+                Console.BackgroundColor = item.Value;
+                Console.WriteLine(item.Key);
+            }
+
+	Dictionary key는 유일해야하기 때문에 Dictionary에 추가시 기존 key와 비교를 하여 동일하면 Error를 발생시킴.
+	일반 value type의 경우 == 으로 비교하여 파악이 가능하지만, class와 같은 ref type의 경우 별도 비교하는 로직이 필요함.
+	(ref type을 == 으로 비교하면 주소를 비교하게 됨.)
+
+	IEqualityComparer<T>를 구현한 class를 class가 key인 Dictionary 생성자에 주입함.
+
+	class ContactEquality : IEqualityComparer<Contact>
+    {
+        public bool Equals(Contact x, Contact y)
+        {
+            if (object.ReferenceEquals(x, y))
+                return true;
+
+            if (x == null || y == null)
+                return false;
+
+            return x.FirstName == y.FirstName && x.LastName == y.LastName;
+            
+        }
+
+        public int GetHashCode(Contact obj)
+        {
+            if (object.ReferenceEquals(obj, null))
+                return 0;
+
+            return obj.FirstName.GetHashCode() + obj.LastName.GetHashCode();
+        }
+    }
+
+	var contacts = new Dictionary<Contact, string>(new ContactEquality());
+
+	contacts.Add(new Contact("k", "m"), "kim"); 
+            contacts.Add(new Contact("k", "g"), "moon");
+
+            var contactKey = new Contact("k", "m");
+			// 동일한 key를 사용하기 때문에 런타임시 에러 발생.
+            contacts.Add(contactKey, "geun");
+
+SortedList<>, SortedDictionary<>
+	Data의 삽입,삭제시 정렬된 형태를 유지.
+	Dictionary의 경우 key를 기준으로 정렬됨.
+
+Stack<>
+	Last In, First Out(LIFO)
+	foreach문을 통해 data에 접근 가능하지만, 실제 꺼내지는 않음.
+
+	Push() : Stack에서 꺼내기
+	Pop() : Stack에 넣기
+	Peek() : 다음에 Pop()으로 나올 Data. 실제로 꺼내지는 않음.
+	Contains() : Stack에 존재 여부
+
+Queue<>
+	First In, Fist Out(FIFO)
+
+	Dequeue() / Enqueue()
+
+LinkedList<>
+	양방향으로 탐색
+
+Indexer
+	Array, Dictionary처럼 []를 통해서 Data에 접근할 수 있도록 사용자 정의 가능.
+	class 멤버에 public <반환 Type> this[indexer type]{ get {...}, set{ ..} }
+
+	Snippet
+		public int this[int index]{
+			get{ ... },
+			set{ ... }
+		}
+참고
+	Collection Return시 값이 없으면 null보다는 빈 collection을 리턴(Enumerable.Empyt<T>())
+	그러면 별도 null check없이 바로 foreach문을 사용할 수 있음.
+	
+
+Iterator
+	foreach문을 통하여 collection의 내부 접근.
+	class가 iterator를 구현하려면 IEnumerator<T>, IEnumerable<T>를 구현해야 함.
+	내부적으로는 컴파일러에 의해서 while문으로 확장됨.
+	열거자 패턴을 직접 구현하는 것보다 Iterator를 구현하는 것이 쉽고 생산성도 좋음.
+
+
+
+	 

@@ -1,0 +1,48 @@
+let
+	Query Express안에서 변수를 선언하여 사용
+
+	 var fileInfos =
+                from fileName in Directory.EnumerateFiles(@"c:\windows")
+                let file = new FileInfo(fileName)
+                orderby file.Length
+                select new
+                {
+                    name = fileName,
+                    size = file.Length
+                };
+
+
+group 
+	IGrouping<T key, T element>를 return하는 Query Express
+	by절 다음 구문은 IGrouping의 key값을 구성함.
+
+	IEnumerable<IGrouping<bool, string>> selection =
+                from word in Keywords
+                group word by word.Contains("*");
+
+Query Continuation with into
+	첫번째 쿼리의 결과를 다음 쿼리로 전달하여 하나의 쿼리로 구성
+
+	var selecton1 =
+                from word in Keywords
+                group word by word.Contains("*")
+                into groups
+                select new
+                {
+                    key = groups.Key,
+                    items = groups
+                };
+
+
+multiple from 절
+	DB쿼리의 cartesian product.
+
+	var numbers = new[] { 1, 2, 3 };
+
+            var selection2 =
+                from word in Keywords
+                from num in numbers
+                select new { word, num }; // {a, 1}, {b,2},{c,3},{d,1},{e,2}...
+
+
+
