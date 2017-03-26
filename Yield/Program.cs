@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Yield
 {
-    class MyList : IEnumerable
+    class MyList 
     {
         private int myProperty;
 
