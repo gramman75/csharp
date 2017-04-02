@@ -54,8 +54,19 @@ namespace CollectionStudy
 
             var contactKey = new Contact("k", "m");
 
-            contacts.Add(contactKey, "geun");
+            try
+            {
+                contacts.Add(contactKey, "geun");
 
+            }
+            catch (ArgumentException ex)
+            {
+
+                Console.WriteLine("Error {0}",nameof(contacts));
+                throw;
+            }
+
+            
             list.Add("Good");
             list.Add("Boy");
             list.Add("Girl");
